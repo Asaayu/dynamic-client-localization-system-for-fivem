@@ -1,5 +1,5 @@
 {
-    "STR_LANGUAGE":
+    "STR_LANGUAGE_EXAMPLE":
     {
         "en": "English",
         "br": "Brazilian",
@@ -14,7 +14,9 @@
         "pl": "Polish",
         "ru": "Russian",
         "tw": "Chinese (Traditional)"
+    },
+    "STR_LANGUAGE_MANAGER_LOADED_MESSAGE":
+    {
+        "en": "[Language Manager] Loaded %d stringtables, containing %d strings."
     }
-
-
 }

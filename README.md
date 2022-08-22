@@ -1,4 +1,5 @@
 # Dynamic FiveM Client Localization System
+A new dynamic localization system for FiveM that allows individual localization for players based on thier language settings
 
 ## License
 Dynamic FiveM Client Localization System, dynamiclly localize strings into the clients selected language.

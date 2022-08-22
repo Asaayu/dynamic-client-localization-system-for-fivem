@@ -1,0 +1,23 @@
+{
+    "STR_LANGUAGE_MANAGER_EXAMPLE_LINE1":
+    {
+        "en": "Hello!",
+        "br": "Olá!",
+        "cn": "你好！",
+        "de": "Hallo!",
+        "es": "¡Hola!",
+        "fr": "Bonjour!",
+        "it": "Ciao!",
+        "jp": "こんにちは！",
+        "kr": "안녕하세요!",
+        "mx": "¡Hola!",
+        "pl": "Cześć!",
+        "ru": "Привет!",
+        "tw": "你好！"
+
+    },
+    "STR_LANGUAGE_MANAGER_EXAMPLE_LINE2":
+    {
+        "en": "When you change your in-game language, we'll greet you in that language!"
+    }
+}
