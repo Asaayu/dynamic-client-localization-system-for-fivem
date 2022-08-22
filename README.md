@@ -40,7 +40,7 @@ Because the system is client side, rather then having to use a single language f
 
 
 ## License
-Dynamic Client Localization System for FiveM, dynamiclly localize strings into a player's local supported language.<br>
+Dynamic Client Localization System for FiveM, dynamically localize strings into a player's local supported language.<br>
 Copyright © 2022  Asaayu **<https://github.com/Asaayu>**
 
 This program is free software: you can redistribute it and/or modify
