@@ -1,122 +1,25 @@
 # Dynamic Client Localization System for FiveM
-A dynamic client localization system for FiveM that allows individual localization for players based on thier language settings
+###### A dynamic client localization system for FiveM that allows individual localization for players based on thier language settings
 
-## How to install the resource
-1. &nbsp;Download the latest release from the [**releases page**](https://github.com/Asaayu/Dynamic-FiveM-Client-Localization-System/releases/latest)
+## Introduction
+This is a dynamic client localization system for FiveM that allows individual localization for players based on thier language settings.
+Designed to be as simple as possible to use and to allow for easy localization of your resources.
 
-3. &nbsp;Add the `[language]` folder to your resources folder
-   - The folder contains both the main system `language` and an example resource `language_example`. Remove the example resource if you don't need it.
+The system has support for all the languages that GTA 5 supports, including, English, French, German, Italian, Spanish, Korean, Japanese, Chinese, Russian, Polish, Portuguese, and Brazilian Portuguese.<br>
+Unfortunately, ***languages that are not supported by GTA 5 are not supported by this system***.
 
-4. &nbsp;Add `ensure [language]` to your server.cfg
+Due to the nature of localization, the `localize` is only available on the client side. When sending strings between clients or from the server, use the localization key,
+rather then the localized string. This means each player can use their preferred language, without running into issues where players are shown strings in a language they don't understand.
 
-## How to use the resource
-1. &nbsp;**(Optional)** - Add the following to the `fxmanifest.lua` file of any resources that uses the localization system, this ensures that the language system is loaded and running before the resource tries to use it.
-   ```lua
-   dependency 'language'
-   ```
+Stringtable files are formatted in JSON to allow for easy editing by non-technical users and easy automatic verification of file format.
 
-2. &nbsp;Create a stringtable JSON file for the resource.<br>
-   [**Follow the steps in the 'How to add new strings' section**](#how-to-add-new-strings)
+Because the system is client side, rather then having to use a single language for all players, each individual player can have their own preferred language (translation permitting) localized for them.
 
-3. &nbsp;To get the a localized string from a key, use the following export:
-   ```lua
-   local localizedString = exports.language:localize('STR_HELLO')
-   ```
-    - The `localize` export takes a single argument, the key of the string you want to localize.
-    - The `localize` export returns a string, the localized string for the players current language, the English string if the specific language is not found, or an `UNDEFINED KEY: <key>` string if no localized strings are found.
-    - When using the localized string in a dynamic environment, such as a UI, it would be best to use the `localize` export every time the string is shown, that way if the player changes their language, the string will update to match the new language.
-    Although there will be situations where the string can't be dynamically changed, in these cases localize the string with the players language when it's run, and if they change their game language, they'll need to reconnect to the server for it to update to their new language.
 
-## How to add new strings
-1. &nbsp;Create a new JSON file in the `stringtable` folder of the `language` resource.
-   - The name of the file should be the same as the name of the resource or something that easily identifiers which resource the file is for.
-   - The name must start with `stringtable_`
-   - The file extension must be `.json`
-
-2. &nbsp;Copy and paste the following into the file and save it.
-   ```json
-   {
-        "STR_EXAMPLE":
-        {
-            "en": "Example"
-        }
-   }
-   ```
-
-3. &nbsp;Use the example string as a template for adding new strings.
-   - The key of the string is the name of the string, this is what you will use to get the string from the localization system.
-     - It's recommended to start all string keys with `STR_` to easily identify them.
-     - The key must be unique, the system will throw an error if the key already exists.
-     - The key will made uppercase, so `STR_EXAMPLE` and `str_example` are the same key.
-   - The return of the string is a table of languages and their translations.
-     - By default, the system will attempt to get the language from the player's GTA 5 language settings. If the language specific string is not found in the stringtable the system will fallback to the English string, if the English string is not found the system will return<br>`UNDEFINED KEY: <key>`.
-     - Add languages to the table by adding a new key with the language code as the key and the translation as the value.
-       - Languages codes:
-         - `en` - English
-         - `br` - Brazilian
-         - `cn` - Chinese (Simplified)
-         - `de` - German
-         - `es` - Spanish
-         - `fr` - French
-         - `it` - Italian
-         - `jp` - Japanese
-         - `kr` - Korean
-         - `mx` - Mexican
-         - `pl` - Polish
-         - `ru` - Russian
-         - `tw` - Chinese (Traditional)
-       - The language code will made uppercase, so `EN` and `en` will both work.
-       - The translation can be any string, but many asian characters will not display correctly for non-asian game clients.
-     - The localized strings supprot formatting, see the [**Formatting**](#formatting) section for more information.
-
-4. &nbsp;Continue adding strings to the file until you have all the strings you need.
-    - Make sure the file is valid JSON, you can use an [**online JSON validator**](https://jsonlint.com/) to check if the file is valid.
-    ```json
-   {
-        "STR_EXAMPLE":
-        {
-            "en": "Example"
-        },
-        "STR_HELLO":
-        {
-            "en": "Hello",
-            "br": "Olá",
-            "cn": "你好",
-            "de": "Hallo",
-            "es": "Hola",
-            "fr": "Bonjour",
-            "it": "Ciao",
-            "jp": "こんにちは",
-            "kr": "안녕하세요",
-            "mx": "Hola",
-            "pl": "Cześć",
-            "ru": "Привет",
-            "tw": "你好"
-        }
-   }
-   ```
-
-## Formatting
-The localized strings support formatting, this allows you to add dynamic information to the string.
-For information on how to format strings, see [**this page**](https://pgl.yoyo.org/luai/i/string.format).
-
-Example:
-```lua
-local localizedString = exports.language:localize('STR_HELLO', 'Asaayu', 'Alex', 25)
-```
-Stringtable File:
-```json
-{
-    "STR_HELLO":
-    {
-        "en": "Hello %s, have you seen %s they've turned %d years old today!"
-    }
-}
-```
-The localized string will be `Hello Asaayu, have you seen Alex they've turned 25 years old today!`
-
-If you don't provide any arguments to the `localize` export, the string won't be formatted, make sure you provide the correct number of arguments for the string or else it will throw an error.
-
+## How the system works
+- On startup, the system will load all stringtable files from the `stringtables` folder.
+- It then creates a table of all the strings in the stringtables, with the key being the string name and the value being the string.
+- The `localize` export will then automatically localize the string based on the player's language settings.
 
 
 ## Important Notes
