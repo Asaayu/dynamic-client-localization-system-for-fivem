@@ -5,11 +5,11 @@
 This is a dynamic client localization system for FiveM that allows individual localization for players based on thier language settings.
 Designed to be as simple as possible to use and to allow for easy localization of your resources.
 
-The system has support for all the languages that GTA 5 supports, including, English, French, German, Italian, Spanish, Korean, Japanese, Chinese, Russian, Polish, Portuguese, and Brazilian Portuguese.<br>
+The system has support for all the languages that GTA 5 supports, including,
+English, French, German, Italian, Spanish, Korean, Japanese, Chinese, Russian, Polish, Portuguese, and Brazilian Portuguese.<br>
 Unfortunately, ***languages that are not supported by GTA 5 are not supported by this system***.
 
-Due to the nature of localization, the `localize` is only available on the client side. When sending strings between clients or from the server, use the localization key,
-rather then the localized string. This means each player can use their preferred language, without running into issues where players are shown strings in a language they don't understand.
+Due to the nature of localization, the `localize` export is only available on the client side. When sending strings between clients or from the server, use the localization key, rather then the localized string. This means each player can use their preferred language, without running into issues where players are shown strings in a language they don't understand.
 
 Stringtable files are formatted in JSON to allow for easy editing by non-technical users and easy automatic verification of file format.
 
