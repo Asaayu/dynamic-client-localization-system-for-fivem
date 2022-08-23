@@ -31,7 +31,7 @@ The documentation for this resource can be found [**on the system's GitHub repo*
 - Localization keys must be unique, add a prefix to the key to identify which resource the key is for.
 - If a language is not found in the stringtable, the system will fallback to the English string.
 - If the English string is not found in the stringtable, the system will return `UNDEFINED KEY: <key>`.
-- Localization keys are not resource specific, if you have a common string you can use the same key in multiple resources.
+- Localization keys are not resource specific, if you have a common string you can use the same key over multiple resources with the `localize` export.
 - The system will use the language from the player's GTA 5 language settings at that point in time, if the player changes their language the returned string will not change until it's localized again or the player reconnects to the server.
 
 
