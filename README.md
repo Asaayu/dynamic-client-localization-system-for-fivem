@@ -37,9 +37,6 @@ The documentation for this resource can be found [**on the system's GitHub repo*
 
 ## Limitations
 - Only languages that are supported by GTA 5 can be used, as it uses the GTA 5 language settings to determine the players language.
-- Only client side strings can be localized, when sending text from the server to the client it's recommended to just send the localization key, then localize the string on the client's side before displaying it.
-- Asian characters will not display correctly for non-asian game clients.
-- Static strings can't be dynamically updated, if the player changes their game language they will need to reconnect to the server for the strings to update to their new language.
 
 
 ## License
