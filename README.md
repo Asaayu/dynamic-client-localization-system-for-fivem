@@ -15,6 +15,9 @@ Stringtable files are formatted in JSON to allow for easy editing by non-technic
 
 Because the system is client side, rather then having to use a single language for all players, each individual player can have their own preferred language (translation permitting) localized for them.
 
+## Documentation
+The documentation for this resource can be found [on the system's GitHub repo](https://github.com/Asaayu/dynamic-client-localization-system-for-fivem/wiki).
+
 
 ## How the system works
 - On startup, the system will load all stringtable files from the `stringtables` folder.
